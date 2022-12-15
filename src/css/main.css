@@ -1,0 +1,205 @@
+body{
+    background: linear-gradient(149.21deg, #5D58B4 0.78%, #9966C5 50.62%);   
+}
+
+#stopwatch{
+    width: 100%;
+}
+#stopwatch__container{
+    padding:3rem 0;
+    display:flex;
+    flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   max-width: 400px;
+   margin: 0 auto;
+}
+
+#stopwatch__body{
+
+    position:relative;
+    width:11rem;
+    height:11rem;
+    padding:0.8rem;
+    border:1px dashed #fff;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+div.stopwatch-case{
+    width:100%;
+    position:absolute;
+    top:48%;
+    left:50%;
+    transform:translate(-50% , -48%);
+    -webkit-transform:translate(-50% , -48%);
+    -moz-transform:translate(-50% , -48%);
+    -ms-transform:translate(-50% , -48%);
+    -o-transform:translate(-50% , -48%);
+}
+
+#stopwatch__body div.text{
+  color: #fff;  
+  text-align:center;
+}
+
+#stopwatch__body div.text h1{
+    display: inline-flex;
+    align-items: flex-end;
+}
+
+span.text-initial{
+    margin-left:4px;
+    margin-bottom:6px;
+    color: var(--text-secondary);
+}
+
+h1.text-dot{
+    margin:0 4px;
+    font-weight: var(--font-regular);
+}
+
+h3.counter{
+    position:absolute;
+    top:87%;
+    left:50%;
+    transform:translate(-50% , -87%);
+    -webkit-transform:translate(-50% , -87%);
+    -moz-transform:translate(-50% , -87%);
+    -ms-transform:translate(-50% , -87%);
+    -o-transform:translate(-50% , -87%);
+    font-weight: var(--font-regular);
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+/* controls */
+
+#stopwatch__controls{ 
+   margin-left:3rem;
+}
+
+#stopwatch__controls div{
+    width:134px;
+    margin-bottom:18px;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+#stopwatch__controls > div:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.28) 0px 5px 8px;
+}
+
+#stopwatch__controls div p{
+    float:left;
+    margin-top:-2.8rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.8px;
+    margin-left:3.2rem;
+}
+
+
+
+#stopwatch__controls div div{
+    width:2.4rem;
+    height:2.4rem; 
+    background-position: center center;
+    background-repeat: no-repeat; 
+    margin-left:0.6rem;
+}
+
+ 
+div.reset__icon{
+    background-image: url('../icon/refresh-icon.png');
+}
+
+div.add__lap{
+    background-image: url('../icon/lap-icon.png');
+}
+
+
+
+/* ==== lap container ======*/
+#lap__container{
+    max-width: 320px;
+    margin:0 auto;
+    height: 250px;
+    overflow: auto;
+    margin-top:2rem;
+}
+
+#lap__container::-webkit-scrollbar {
+    display: none;
+  }
+
+ 
+
+#lap__container  li{
+    border:1px solid  #E8E8E8;
+    padding:0.8rem 1.25rem;
+    margin-bottom:1.05rem;
+    border-radius: 1.2rem;
+    -webkit-border-radius: 1.2rem;
+    -moz-border-radius: 1.2rem;
+    -ms-border-radius: 1.2rem;
+    -o-border-radius: 1.2rem;
+}
+
+#lap__container li:hover{
+    cursor: pointer;
+}
+ 
+
+
+#lap__container p{
+    color: #fff;
+}
+#lap__container p span{
+    font-size:1.05rem;
+    margin:0 2rem;
+}
+
+#lap__container p span.lap-time{
+    float:right;
+}
+
+ 
+/* == CLEAR ALL BUTTON */
+button#clear__lap{
+    display:block;
+    z-index:99;
+    position:absolute;
+    bottom:1rem;
+    left:50%;
+    background-color:rgba(255,255,255,0.9);
+    padding:0.5rem 1.25rem;
+    color: #1f1f1f;
+    font-size: 0.84rem;
+    letter-spacing: 0.8px;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    -o-transform:translateX(-50%);
+}
+
+
+/* === MEDIA QUERY === */
+@media only screen and (min-width: 961px) {
+    
+    div#lap__container{
+        max-width: 500px;
+    }
+}
