@@ -27,7 +27,24 @@ export default class Stopwatch {
           this.stopStopwatch();
         }
       });
-  }
+
+    }
+
+    // start the stopwatch
+startStopwatch() {
+ // clear the interval if any interval running initially
+ clearInterval(this.interval);
+
+ this.interval = setInterval(() => {
+   this.count += 10;
+   // update the stopwatch
+   this.updateStopwatch();
+ }, 10);
+
+ // update the stopwatch interface
+ this.updateStopwatchInterface();
+}
+  
   // define the static function for stopwatch
   static getStopwatchHTML() {
     return `
