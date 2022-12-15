@@ -18,6 +18,15 @@ export default class Stopwatch {
     //  initializing the default remaining time
     this.count = 0;
     this.index = 1;
+
+    // add click event listeners to play/ pause button
+    this.ele.playPause.addEventListener("click", () => {
+        if (this.interval == null) {
+          this.startStopwatch();
+        } else {
+          this.stopStopwatch();
+        }
+      });
   }
   // define the static function for stopwatch
   static getStopwatchHTML() {
