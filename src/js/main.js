@@ -21,30 +21,39 @@ export default class Stopwatch {
 
     // add click event listeners to play/ pause button
     this.ele.playPause.addEventListener("click", () => {
-        if (this.interval == null) {
-          this.startStopwatch();
-        } else {
-          this.stopStopwatch();
-        }
-      });
+      if (this.interval == null) {
+        this.startStopwatch();
+      } else {
+        this.stopStopwatch();
+      }
+    });
+  }
 
-    }
+  // start the stopwatch
+  startStopwatch() {
+    // clear the interval if any interval running initially
+    clearInterval(this.interval);
 
-    // start the stopwatch
-startStopwatch() {
- // clear the interval if any interval running initially
- clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.count += 10;
+      // update the stopwatch
+      this.updateStopwatch();
+    }, 10);
 
- this.interval = setInterval(() => {
-   this.count += 10;
-   // update the stopwatch
-   this.updateStopwatch();
- }, 10);
+    // update the stopwatch interface
+    this.updateStopwatchInterface();
+  }
 
- // update the stopwatch interface
- this.updateStopwatchInterface();
-}
-  
+  // stop the stopwatch
+  stopStopwatch() {
+    // clear the interval
+    clearInterval(this.interval);
+    //setting the interval value again to nulle
+    this.interval = null;
+    // update the stopwatch interface
+    this.updateStopwatchInterface();
+  }
+
   // define the static function for stopwatch
   static getStopwatchHTML() {
     return `
