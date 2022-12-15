@@ -27,6 +27,30 @@ export default class Stopwatch {
         this.stopStopwatch();
       }
     });
+
+     // add click event listeners to refesh button
+     this.ele.reset.addEventListener("click", () => {
+        // this.stopStopwatch();
+        clearInterval(this.interval);
+        //setting the interval value again to nulle
+        this.interval = null;
+        // update the stopwatch interface
+        this.updateStopwatchInterface();
+  
+        // update the dislay text of the stopwatch
+        this.ele.milisec.textContent = "00";
+        this.ele.displayText.innerHTML = `
+        <h1>0 <span class="text-initial">h</span></h1>
+        <h1 class="text-dot">:</h1>
+        <h1>0 <span class="text-initial">m</span></h1>
+        <h1 class="text-dot">:</h1>
+        <h1>0 <span class="text-initial">s</span></h1>
+        `;
+  
+        // update the count variable to 0
+        this.count = 0;
+      
+      });
   }
 
   // start the stopwatch
