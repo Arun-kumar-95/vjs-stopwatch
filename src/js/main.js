@@ -71,6 +71,23 @@ export default class Stopwatch {
     `;
   }
 
+
+    // update the play pause button
+    updateStopwatchInterface() {
+        // if the stopwatch is not running then show play button
+        if (this.interval == null) {
+          this.ele.playPause.children[0].classList.add("add-play-icon");
+          this.ele.playPause.children[0].classList.remove("add-pause-icon");
+          this.ele.playPause.children[1].textContent = "Play";
+        } else {
+          // show pause icon
+          this.ele.playPause.children[0].classList.add("add-pause-icon");
+          this.ele.playPause.children[0].classList.remove("add-play-icon");
+          this.ele.playPause.children[1].textContent = "Pause";
+        }
+      }
+
+      
   
   // define the static function for stopwatch
   static getStopwatchHTML() {
