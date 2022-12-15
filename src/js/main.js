@@ -54,6 +54,24 @@ export default class Stopwatch {
     this.updateStopwatchInterface();
   }
 
+
+  // update stopwatch
+  updateStopwatch() {
+    this.ele.milisec.textContent = this.count;
+    this.minutes = Math.floor((this.count / 1000 / 60) % 60);
+    this.hours = Math.floor((this.count / 1000 / 60 / 60) % 24);
+    this.seconds = Math.floor(this.count / 1000) % 60;
+
+    this.ele.displayText.innerHTML = `
+    <h1>${this.hours} <span class="text-initial">h</span></h1>
+    <h1 class="text-dot">:</h1>
+    <h1>${this.minutes} <span class="text-initial">m</span></h1>
+    <h1 class="text-dot">:</h1>
+    <h1>${this.seconds} <span class="text-initial">s</span></h1>
+    `;
+  }
+
+  
   // define the static function for stopwatch
   static getStopwatchHTML() {
     return `
