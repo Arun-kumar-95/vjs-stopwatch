@@ -1,0 +1,96 @@
+:root{
+
+    --min-width:320px;
+    --min-height:100vh;
+    --width:100%;
+
+    /* ==== typography =========*/
+    --font-family:  'Arial';  
+   --base-size: 82% !important;
+   --font-h1: 2.5rem;
+   --font-h3:1.15rem;
+
+   
+   /* ==== font-weight =========*/
+   --font-regular: 400;
+
+   /* ==== colors =========*/
+   --text-color: #f1f1f1;
+   --pink-color:#FF63D1;
+   --yellow-color:#E4AB4E;
+   --text-secondary:#E8E8E8;
+
+   
+    /* ==== margens =========*/
+    --mb-1:1rem;
+    --mb-2:2rem;
+    --mb-4:4rem;
+}
+
+
+*{
+    margin:0;
+    padding:0;
+}
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+   min-width: var(--min-width);
+   min-height: var(--min-height);
+   width: var(--width);
+   font-family: var(--font-family);
+   font-weight: var(--font-regular);
+   font-size: var(--base-size);
+}
+
+button{
+    border:none;
+    outline:none;
+}
+button:hover{
+    cursor: pointer;
+}
+
+
+span, p{
+    font-size: 1rem;
+    font-weight: var(--font-regular);
+}
+
+p{
+    color: #f9f9f9;
+ }
+
+h1{
+    font-size: var(--font-h1);
+    font-weight: var(--font-regular);
+}
+
+li{
+    list-style-type: none;
+}
+
+/* === reusable classes */
+.pink-color{
+    background-color: var(--pink-color);
+}
+.yellow-color{
+    background-color: var(--yellow-color);
+}
+
+.add-play-icon{
+    background-image: url('../icon/play-icon.png');
+}
+.add-pause-icon{
+    background-image: url('../icon/pause-icon.png');
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+
+ 
