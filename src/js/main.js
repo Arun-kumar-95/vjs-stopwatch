@@ -28,29 +28,56 @@ export default class Stopwatch {
       }
     });
 
-     // add click event listeners to refesh button
-     this.ele.reset.addEventListener("click", () => {
-        // this.stopStopwatch();
-        clearInterval(this.interval);
-        //setting the interval value again to nulle
-        this.interval = null;
-        // update the stopwatch interface
-        this.updateStopwatchInterface();
-  
-        // update the dislay text of the stopwatch
-        this.ele.milisec.textContent = "00";
-        this.ele.displayText.innerHTML = `
+    // add click event listeners to refesh button
+    this.ele.reset.addEventListener("click", () => {
+      // this.stopStopwatch();
+      clearInterval(this.interval);
+      //setting the interval value again to nulle
+      this.interval = null;
+      // update the stopwatch interface
+      this.updateStopwatchInterface();
+
+      // update the dislay text of the stopwatch
+      this.ele.milisec.textContent = "00";
+      this.ele.displayText.innerHTML = `
         <h1>0 <span class="text-initial">h</span></h1>
         <h1 class="text-dot">:</h1>
         <h1>0 <span class="text-initial">m</span></h1>
         <h1 class="text-dot">:</h1>
         <h1>0 <span class="text-initial">s</span></h1>
         `;
-  
-        // update the count variable to 0
-        this.count = 0;
-      
-      });
+
+      // update the count variable to 0
+      this.count = 0;
+    });
+
+    // add click event listeners to lap button
+    this.ele.lapButton.addEventListener("click", () => {
+      if (
+        this.interval != null ||
+        this.ele.playPause.children[1].textContent != "Play"
+      ) {
+        if (this.ele.lapDIV.style.display == "none") {
+          this.ele.lapDIV.style.display = "block";
+        }
+        // creating a lap
+        let li = document.createElement("li");
+        let p = document.createElement("p");
+        let text = document.createElement("span");
+        let number = document.createElement("span");
+        number.textContent = `#${this.index}`;
+        text.setAttribute("class", "lap-time");
+        text.textContent = `${this.hours} : ${this.minutes} : ${this.seconds}`;
+
+        p.append(number, text);
+        li.appendChild(p);
+        this.ele.lapDIV.appendChild(li);
+        this.index++;
+
+        this.ele.lapDIV.children[0].classList.remove("hidden");
+        return;
+      }
+    });
   }
 
   // start the stopwatch
@@ -78,7 +105,6 @@ export default class Stopwatch {
     this.updateStopwatchInterface();
   }
 
-
   // update stopwatch
   updateStopwatch() {
     this.ele.milisec.textContent = this.count;
@@ -95,24 +121,21 @@ export default class Stopwatch {
     `;
   }
 
+  // update the play pause button
+  updateStopwatchInterface() {
+    // if the stopwatch is not running then show play button
+    if (this.interval == null) {
+      this.ele.playPause.children[0].classList.add("add-play-icon");
+      this.ele.playPause.children[0].classList.remove("add-pause-icon");
+      this.ele.playPause.children[1].textContent = "Play";
+    } else {
+      // show pause icon
+      this.ele.playPause.children[0].classList.add("add-pause-icon");
+      this.ele.playPause.children[0].classList.remove("add-play-icon");
+      this.ele.playPause.children[1].textContent = "Pause";
+    }
+  }
 
-    // update the play pause button
-    updateStopwatchInterface() {
-        // if the stopwatch is not running then show play button
-        if (this.interval == null) {
-          this.ele.playPause.children[0].classList.add("add-play-icon");
-          this.ele.playPause.children[0].classList.remove("add-pause-icon");
-          this.ele.playPause.children[1].textContent = "Play";
-        } else {
-          // show pause icon
-          this.ele.playPause.children[0].classList.add("add-pause-icon");
-          this.ele.playPause.children[0].classList.remove("add-play-icon");
-          this.ele.playPause.children[1].textContent = "Pause";
-        }
-      }
-
-      
-  
   // define the static function for stopwatch
   static getStopwatchHTML() {
     return `
