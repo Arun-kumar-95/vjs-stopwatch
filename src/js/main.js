@@ -78,6 +78,18 @@ export default class Stopwatch {
         return;
       }
     });
+
+    // CLEAR ALL LAPS
+
+    this.ele.lapDIV.children[0].addEventListener("click", () => {
+      // STORING THE CLEAR BUTTON REFERENNCE
+      const clearButton = this.ele.lapDIV.children[0];
+      this.ele.lapDIV.innerHTML = "";
+      this.ele.lapDIV.append(clearButton);
+      clearButton.classList.add("hidden");
+      // SETTING THE INDEX AGAIN TO 1
+      this.index = 1;
+    });
   }
 
   // start the stopwatch
