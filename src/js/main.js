@@ -1,7 +1,17 @@
 export default class Stopwatch {
   constructor(root) {
-      // setting the html of stopwatch
-      root.innerHTML = Stopwatch.getStopwatchHTML();
+    // setting the html of stopwatch
+    root.innerHTML = Stopwatch.getStopwatchHTML();
+
+    // selecting html elements
+    this.ele = {
+      reset: document.getElementById("reset__icon"),
+      playPause: document.getElementById("play__pause"),
+      lapButton: document.getElementById("add__lap"),
+      milisec: document.querySelector("h3.counter"),
+      displayText: document.querySelector("div.text"),
+      lapDIV: document.getElementById("lap__container"),
+    };
   }
   // define the static function for stopwatch
   static getStopwatchHTML() {
