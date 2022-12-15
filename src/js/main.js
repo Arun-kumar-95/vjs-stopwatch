@@ -1,5 +1,8 @@
 export default class Stopwatch {
-  constructor(root) {}
+  constructor(root) {
+      // setting the html of stopwatch
+      root.innerHTML = Stopwatch.getStopwatchHTML();
+  }
   // define the static function for stopwatch
   static getStopwatchHTML() {
     return `
