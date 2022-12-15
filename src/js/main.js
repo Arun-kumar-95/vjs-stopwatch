@@ -12,6 +12,12 @@ export default class Stopwatch {
       displayText: document.querySelector("div.text"),
       lapDIV: document.getElementById("lap__container"),
     };
+
+    //track if the stopwatch is running or not
+    this.interval = null;
+    //  initializing the default remaining time
+    this.count = 0;
+    this.index = 1;
   }
   // define the static function for stopwatch
   static getStopwatchHTML() {
